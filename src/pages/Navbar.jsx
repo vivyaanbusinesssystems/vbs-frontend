@@ -2,15 +2,16 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
     ChevronDown,
-    Sparkles,
     Home,
     Building2,
     Layers,
     Info,
-    Phone
+    Phone,
+    ArrowRight
 } from "lucide-react";
 import { CATEGORIES, getServicesByCategory } from "../lib/services-data";
 import { cn } from "../lib/utils";
+import logo from "../assets/logo.svg";
 
 // Added icons to the NAV array for the mobile bottom bar
 const NAV = [
@@ -45,16 +46,12 @@ export default function Navbar() {
                 )}
             >
                 <div className="container-page flex h-18 items-center justify-between gap-6 py-3">
-                    <Link to="/" className="flex items-center gap-2 shrink-0">
-                        <span className="grid h-10 w-10 place-items-center rounded-xl gradient-brand text-brand-foreground shadow-elegant">
-                            <Sparkles className="h-5 w-5" />
-                        </span>
-                        <span className="flex flex-col leading-tight">
-                            <span className="text-base font-bold tracking-tight text-foreground">Vivyaan</span>
-                            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                                Business Systems
-                            </span>
-                        </span>
+                    <Link to="/" className="flex items-center shrink-0">
+                        <img
+                            src={logo}
+                            alt="Vivyaan Business Systems Logo"
+                            className="h-24 md:h-38 w-auto object-contain"
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -139,30 +136,53 @@ export default function Navbar() {
 function MegaMenu({ onNavigate }) {
     const cats = Object.keys(CATEGORIES);
     return (
-        <div className="absolute left-1/2 top-full pt-3 -translate-x-1/2 w-150 max-w-[92vw]">
-            <div className="rounded-2xl border border-border bg-popover shadow-2xl p-6 grid grid-cols-3 gap-6">
+        <div className="absolute left-1/2 top-full pt-4 -translate-x-1/2 w-162.5 max-w-[95vw] shadow-2xl origin-top animate-in fade-in zoom-in-95 duration-200">
+            <div className="rounded-3xl border border-border bg-background p-3">
                 {cats.map((key) => {
                     const c = CATEGORIES[key];
                     const services = getServicesByCategory(key);
                     return (
                         <div key={key}>
-                            <p className="text-[11px] uppercase tracking-[0.16em] text-brand font-bold">
-                                {c.label}
-                            </p>
-                            <p className="mt-1 text-xs text-muted-foreground">{c.description}</p>
-                            <ul className="mt-4 space-y-1.5">
+                            {/* Premium Header Section */}
+                            <div className="px-5 py-4 bg-surface rounded-2xl mb-3 border border-border/50">
+                                <p className="text-xs uppercase tracking-[0.16em] text-brand font-extrabold">
+                                    {c.label}
+                                </p>
+                                <p className="mt-1.5 text-sm text-muted-foreground">{c.description}</p>
+                            </div>
+
+                            {/* 2-Column Modern Grid */}
+                            <div className="grid grid-cols-2 gap-2">
                                 {services.map((s) => (
-                                    <li key={s.slug}>
-                                        <Link
-                                            to={`/services/${s.slug}`}
-                                            onClick={onNavigate}
-                                            className="block rounded-md px-2 py-1.5 text-sm font-medium text-foreground hover:bg-brand-soft hover:text-brand transition"
-                                        >
+                                    <Link
+                                        key={s.slug}
+                                        to={`/services/${s.slug}`}
+                                        onClick={onNavigate}
+                                        className="group flex flex-col rounded-2xl p-4 hover:bg-brand-soft border border-transparent hover:border-brand/20 transition-all duration-300"
+                                    >
+                                        <h3 className="text-sm font-bold text-foreground group-hover:text-brand transition-colors">
                                             {s.title}
-                                        </Link>
-                                    </li>
+                                        </h3>
+                                        <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                                            {s.tagline || s.intro}
+                                        </p>
+                                        <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-brand opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                                            Explore Service <ArrowRight className="h-3.5 w-3.5" />
+                                        </div>
+                                    </Link>
                                 ))}
-                            </ul>
+                            </div>
+
+                            {/* View All Footer */}
+                            <div className="mt-2 pt-2 border-t border-border/50">
+                                <Link
+                                    to="/services"
+                                    onClick={onNavigate}
+                                    className="flex items-center justify-center w-full py-3 rounded-xl text-sm font-bold text-foreground hover:bg-surface transition-colors group"
+                                >
+                                    View All Services <ArrowRight className="ml-2 h-4 w-4 text-brand group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
                         </div>
                     );
                 })}

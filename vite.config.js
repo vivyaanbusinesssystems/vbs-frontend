@@ -19,4 +19,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Corrected server host configuration
+  server: {
+    host: true
+  }
 })

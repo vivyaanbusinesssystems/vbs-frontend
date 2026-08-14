@@ -21,18 +21,18 @@ export default function About() {
     const values = [
         { icon: Shield, title: "Integrity", copy: "We operate with honesty, transparency, and professionalism." },
         { icon: Heart, title: "Customer First", copy: "Our clients' success is our highest priority." },
-        { icon: Lightbulb, title: "Innovation", copy: "We continuously embrace new ideas and technologies." },
-        { icon: Award, title: "Quality Excellence", copy: "We deliver services that exceed expectations." },
+        { icon: Lightbulb, title: "Innovation", copy: "We continuously embrace new ideas and sourcing strategies." },
+        { icon: Award, title: "Quality Excellence", copy: "We deliver candidates and services that exceed expectations." },
         { icon: Users, title: "Collaboration", copy: "We believe in teamwork and long-term partnerships." },
-        { icon: CheckCircle, title: "Commitment", copy: "We are dedicated to achieving measurable business outcomes." },
+        { icon: CheckCircle, title: "Commitment", copy: "We are dedicated to achieving measurable hiring outcomes." },
     ];
 
     const missionPoints = [
         "Deliver exceptional recruitment and staffing solutions across industries.",
-        "Build innovative software and digital solutions that improve business performance.",
-        "Help organizations adopt technology for greater efficiency and growth.",
+        "Connect businesses with the right talent to improve operational performance.",
+        "Help organizations build reliable and scalable workforces for sustained growth.",
         "Create lasting partnerships through transparency, quality, and reliability.",
-        "Contribute to business success by providing end-to-end workforce and technology services."
+        "Contribute to business success by providing end-to-end manpower and recruitment services."
     ];
 
     const hiringSteps = [
@@ -51,7 +51,7 @@ export default function About() {
 
             <SEO
                 title="About Us"
-                description="Learn about Vivyaan Business Systems' mission, vision, and core values. We are a trusted partner for enterprise talent, technology, and operations."
+                description="Learn about Vivyaan Business Systems' mission, vision, and core values. We are a trusted partner for enterprise talent, staffing, and workforce solutions."
                 url="https://www.vivyaanbusinesssystems.com/about"
             />
 
@@ -60,12 +60,10 @@ export default function About() {
                 <div className="container-page max-w-4xl text-center">
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">About Us</p>
                     <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-                        Empowering Businesses with <span className="text-brand">Smart Workforce & Technology Solutions</span>
+                        Powering Businesses with <span className="text-brand">Exceptional Talent</span>
                     </h1>
                     <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                        Vivyaan Business Systems Pvt. Ltd. is a fast-growing business solutions company committed to
-                        helping organizations accelerate growth through innovative workforce,
-                        technology, and digital transformation services.
+                        Vivyaan Business Systems Private Limited is a growing workforce solutions and recruitment company focused on helping businesses find the right talent for their evolving workforce needs.
                     </p>
                 </div>
             </section>
@@ -75,10 +73,7 @@ export default function About() {
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl font-bold">A Trusted Partner for Growth</h2>
                         <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                            Our integrated approach combines human expertise with modern technology to simplify business
-                            operations, improve efficiency, and enable sustainable growth. Whether businesses require skilled talent,
-                            enterprise software, digital marketing, ERP implementation, or customized IT solutions, we act as a
-                            trusted long-term partner dedicated to delivering measurable results.
+                            Our integrated approach focuses on understanding your unique hiring needs and delivering reliable workforce solutions to improve efficiency and enable sustainable growth. Whether businesses require permanent recruitment, temporary staffing, blue-collar manpower, or comprehensive domestic staffing, we act as a trusted long-term partner dedicated to delivering exceptional talent and measurable results.
                         </p>
                     </div>
 
@@ -95,7 +90,7 @@ export default function About() {
                                 </div>
                                 <p className="text-lg text-foreground/80 leading-relaxed font-medium">
                                     To become one of India's most trusted business solutions companies by empowering organizations
-                                    with innovative workforce, technology, and digital transformation services that create
+                                    with innovative workforce and talent solutions that create
                                     long-term business value.
                                 </p>
                             </div>
@@ -205,7 +200,7 @@ export default function About() {
                             <Layers className="h-12 w-12 text-highlight mx-auto md:mx-0" />
                             <p className="mt-6 text-2xl font-bold">Multi-Service</p>
                             <p className="mt-3 text-brand-foreground/80 leading-relaxed">
-                                End-to-end solutions combining Recruitment, Technology, and Consulting under one roof.
+                                End-to-end solutions combining Permanent Recruitment, Temporary Staffing, and Comprehensive Manpower under one roof.
                             </p>
                         </div>
                         <div className="text-center md:text-left">

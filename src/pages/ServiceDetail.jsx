@@ -18,7 +18,7 @@ export default function ServiceDetail() {
         setIsVisible(false);
         const timer = setTimeout(() => setIsVisible(true), 50);
         return () => clearTimeout(timer);
-    }, [slug]); // Added slug as a dependency
+    }, [slug]);
 
     if (!service) {
         return (
@@ -38,14 +38,12 @@ export default function ServiceDetail() {
 
     return (
         <div className={`transition-opacity duration-700 ease-out pb-20 lg:pb-0 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-            {/* Dynamically loads SEO data based on the specific service */}
             <SEO
                 title={service.title}
                 description={service.intro}
                 url={`https://www.vivyaanbusinesssystems.com/services/${service.slug}`}
             />
 
-            {/* Hero Banner - Adjusted padding for mobile/desktop parity */}
             <section className="gradient-hero pt-16 lg:pt-28 pb-16 lg:pb-20 border-b border-border">
                 <div className="container-page max-w-4xl">
                     <nav className="text-xs text-muted-foreground mb-4 flex items-center gap-2">
@@ -82,7 +80,6 @@ export default function ServiceDetail() {
                 </div>
             </section>
 
-            {/* Sub-Services Grid */}
             <section className="py-20">
                 <div className="container-page">
                     <div className="max-w-2xl mb-12">
@@ -104,7 +101,6 @@ export default function ServiceDetail() {
                 </div>
             </section>
 
-            {/* Tags */}
             <section className="py-16 bg-surface border-y border-border">
                 <div className="container-page max-w-4xl text-center">
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
@@ -124,7 +120,6 @@ export default function ServiceDetail() {
                 </div>
             </section>
 
-            {/* Benefits */}
             <section className="py-20">
                 <div className="container-page">
                     <div className="max-w-2xl mb-12">
@@ -144,7 +139,6 @@ export default function ServiceDetail() {
                 </div>
             </section>
 
-            {/* Lead Capture */}
             <section id="lead-form" className="py-20 bg-surface border-t border-border">
                 <div className="container-page grid lg:grid-cols-2 gap-12 items-start">
                     <div>

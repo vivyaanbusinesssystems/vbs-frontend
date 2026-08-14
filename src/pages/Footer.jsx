@@ -49,7 +49,7 @@ export default function Footer() {
                         {[Linkedin, Twitter, Facebook].map((Icon, i) => (
                             <a
                                 key={i}
-                                href="#"
+                                href="https://www.linkedin.com/company/vivyaan-business-systems-private-limited/"
                                 className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-highlight hover:text-highlight-foreground transition"
                                 aria-label="Social link"
                             >

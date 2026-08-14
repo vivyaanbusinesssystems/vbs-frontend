@@ -2,23 +2,19 @@ import { Link } from "react-router-dom";
 import {
     Users,
     Briefcase,
-    Code,
-    Database,
     Globe,
     TrendingUp,
     HeadphonesIcon,
     UserCheck,
     HardHat,
-    Layout,
-    Lightbulb,
-    Sparkles,
     Star,
     Quote,
     Layers,
     Settings,
     CheckCircle,
     Heart,
-    ArrowRight
+    ArrowRight,
+    Sparkles
 } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import heroImg from "../assets/hero.jpg";
@@ -34,11 +30,10 @@ export default function Home() {
     }, []);
 
     return (
-        // Reduced from pb-24 to pb-20 so it just tightly clears the 4rem (64px) bottom mobile navbar
         <div className={`transition-opacity duration-700 ease-out pb-20 lg:pb-0 ${isVisible ? "opacity-100" : "opacity-0"}`}>
             <SEO
                 title="Home"
-                description="At Vivyaan Business Systems Pvt. Ltd., we help businesses grow by delivering reliable workforce solutions and innovative technology services."
+                description="Vivyaan Business Systems Pvt. Ltd. provides reliable workforce solutions, staffing, and manpower services across India."
                 url="https://www.vivyaanbusinesssystems.com/"
             />
             <Hero />
@@ -55,17 +50,16 @@ export default function Home() {
 function Hero() {
     return (
         <section className="relative gradient-hero overflow-hidden">
-            {/* Reduced pt-28 to pt-20, which is exactly 80px (just enough to clear your top navbar without a huge gap) */}
             <div className="container-page grid lg:grid-cols-2 gap-12 pt-10 pb-10 lg:py-24 items-center">
                 <div>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 backdrop-blur px-3 py-1 text-xs font-semibold text-brand">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 backdrop-blur px-3 py-1 text-s font-semibold text-brand">
                         <Sparkles className="h-3.5 w-3.5" /> Vivyaan Business Systems Pvt. Ltd.
                     </span>
                     <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-                        Empowering Businesses with <span className="text-brand">Smart Workforce & Technology Solutions</span>
+                        Powering Businesses with <span className="text-brand">Exceptional Talent</span>
                     </h1>
                     <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
-                        At Vivyaan Business Systems Pvt. Ltd., we help businesses grow by delivering reliable workforce solutions and innovative technology services. From talent acquisition and staffing to software development and digital transformation, we provide customised solutions that drive efficiency, productivity, and sustainable growth.
+                        Vivyaan Business Systems Private Limited is a growing workforce solutions and recruitment company focused on helping businesses find the right talent for their evolving workforce needs.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-3">
                         <Link
@@ -102,23 +96,23 @@ function CompanyIntro() {
                     Welcome to Vivyaan Business Systems
                 </h2>
                 <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                    Vivyaan Business Systems Pvt. Ltd. is a trusted business solutions company committed to helping organisations succeed through people, technology, and innovation. We provide end-to-end services across recruitment, staffing, software development, ERP solutions, website development, digital marketing, BPO, HR consulting, and business consulting.
+                    We provide end-to-end recruitment and staffing solutions across India, supporting businesses in identifying, attracting, evaluating, and deploying the right talent for their workforce requirements. Our services cover IT Staffing, Non-IT Staffing, Domestic Staffing, Permanent Recruitment, Contract Staffing, Temporary Staffing, and Blue-Collar Manpower Solutions.
                 </p>
                 <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                    Our experienced team works closely with clients to understand their unique requirements and deliver practical, scalable, and cost-effective solutions. Whether you are a startup, SME, or large enterprise, Vivyaan is your reliable growth partner.
+                    At Vivyaan Business Systems, we understand that the right people are at the heart of every successful organization. Our approach combines industry understanding, structured recruitment processes, talent sourcing capabilities, and a strong focus on client requirements to deliver workforce solutions that are efficient, scalable, and business-oriented.
                 </p>
             </div>
-        </section>
+        </section >
     );
 }
 
 function CoreServices() {
     const services = [
         {
-            title: "Recruitment & Manpower",
-            slug: "recruitment-manpower",
+            title: "Staffing and Recruitment",
+            slug: "staffing-and-recruitment",
             icon: Users,
-            copy: "Permanent recruitment, contractual staffing, executive search, bulk hiring, campus recruitment, and talent acquisition.",
+            copy: "Comprehensive recruitment solutions to help you identify, attract, and deploy the perfect candidates for permanent, contract, and temporary roles.",
         },
         {
             title: "Domestic Staffing",
@@ -127,58 +121,16 @@ function CoreServices() {
             copy: "Skilled professionals and workforce solutions across India for IT, Non-IT, manufacturing, healthcare, and retail.",
         },
         {
-            title: "IT & Software Development",
-            slug: "it-software-development",
-            icon: Code,
-            copy: "Custom software development, enterprise applications, mobile apps, cloud solutions, CRM systems, and API integration.",
-        },
-        {
-            title: "ERP Solutions",
-            slug: "erp-solutions",
-            icon: Database,
-            copy: "End-to-end ERP consulting, implementation, customization, migration, integration, support, training, and maintenance.",
-        },
-        {
-            title: "Web Development",
-            slug: "web-development",
-            icon: Globe,
-            copy: "Designing and developing modern, responsive, secure, and scalable websites, e-commerce platforms, and web portals.",
-        },
-        {
-            title: "Digital Marketing",
-            slug: "digital-marketing",
-            icon: TrendingUp,
-            copy: "Search Engine Optimization (SEO), Google Ads (PPC), Social Media Marketing, Content Marketing, and Lead Generation.",
-        },
-        {
-            title: "BPO Services",
-            slug: "bpo-services",
-            icon: HeadphonesIcon,
-            copy: "Reliable business process outsourcing solutions including customer support, technical support, back-office, and data entry.",
-        },
-        {
-            title: "HR Consulting",
-            slug: "hr-consulting",
-            icon: UserCheck,
-            copy: "Supporting organisations with HR policy development, payroll management, statutory compliance, and performance management.",
-        },
-        {
             title: "Blue Collar Workforce",
             slug: "blue-collar-workforce",
             icon: HardHat,
             copy: "Supplying reliable skilled manpower including factory workers, machine operators, drivers, security guards, and technicians.",
         },
         {
-            title: "Website Design",
-            slug: "website-design",
-            icon: Layout,
-            copy: "Creating visually appealing, user-friendly, and SEO-optimised corporate websites, landing pages, and e-commerce stores.",
-        },
-        {
-            title: "Business Consulting",
-            slug: "business-consulting",
-            icon: Lightbulb,
-            copy: "Helping startups, SMEs, and enterprises with business strategy, operational excellence, process optimisation, and market expansion.",
+            title: "Manpower Services",
+            slug: "manpower-services",
+            icon: UserCheck,
+            copy: "Reliable manpower outsourcing and management solutions designed to streamline your daily operations and meet dynamic business demands.",
         }
     ];
 
@@ -193,7 +145,7 @@ function CoreServices() {
                         End-to-End Business Solutions
                     </h2>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services.map((service) => {
                         const Icon = service.icon;
                         return (
@@ -221,14 +173,68 @@ function CoreServices() {
 
 function WhyChooseUs() {
     const items = [
-        { icon: Layers, copy: "End-to-end workforce and IT solutions under one roof" },
-        { icon: Users, copy: "Experienced professionals across multiple business domains" },
-        { icon: Settings, copy: "Customized solutions tailored to your business needs" },
-        { icon: CheckCircle, copy: "Quality-driven processes and timely delivery" },
-        { icon: TrendingUp, copy: "Cost-effective and scalable service models" },
-        { icon: Heart, copy: "Strong focus on client satisfaction and long-term relationships" },
-        { icon: HeadphonesIcon, copy: "Reliable support throughout every stage of engagement" },
+        {
+            icon: Layers,
+            title: "Comprehensive Staffing Solutions",
+            copy: "From IT and Non-IT professionals to blue-collar and frontline workers, we provide diverse recruitment and manpower solutions under one roof."
+        },
+        {
+            icon: Globe,
+            title: "Pan-India Recruitment Support",
+            copy: "We support organizations with talent acquisition and staffing requirements across multiple locations in India, helping businesses access a wider talent pool."
+        },
+        {
+            icon: Star,
+            title: "Quality-Focused Recruitment",
+            copy: "Our recruitment process focuses on understanding the client's requirements and identifying candidates based on skills, experience, qualifications, role suitability, and organizational requirements."
+        },
+        {
+            icon: TrendingUp,
+            title: "Faster Hiring Support",
+            copy: "We understand that vacant positions can impact business operations. Our structured sourcing and screening approach helps organizations address hiring requirements efficiently and reduce recruitment turnaround time."
+        },
+        {
+            icon: Settings,
+            title: "Flexible Workforce Solutions",
+            copy: "Business requirements can change quickly. We provide flexible solutions including Permanent Recruitment, Contract Staffing, Temporary Staffing, Bulk Hiring, Manpower Supply, and Blue-Collar Staffing."
+        },
+        {
+            icon: Briefcase,
+            title: "Industry-Focused Approach",
+            copy: "We support recruitment requirements across a wide range of industries, allowing us to understand different business environments, job profiles, skill requirements, and workforce challenges."
+        },
+        {
+            icon: UserCheck,
+            title: "Client-Centric Service",
+            copy: "Every organization has unique hiring needs. We work closely with our clients to understand their workforce objectives and develop solutions aligned with their business requirements, timelines, and hiring priorities."
+        },
+        {
+            icon: CheckCircle,
+            title: "End-to-End Recruitment Support",
+            copy: "From candidate sourcing and screening to interview coordination and onboarding support, we help simplify the recruitment process and provide a smoother hiring experience."
+        },
+        {
+            icon: Layers,
+            title: "Scalable Hiring Capabilities",
+            copy: "Whether you need to hire one specialized professional or a large workforce, our staffing solutions can be adapted according to the size and complexity of your requirement."
+        },
+        {
+            icon: Quote,
+            title: "Professional & Transparent Approach",
+            copy: "We believe in maintaining professional communication, transparency, accountability, and ethical business practices throughout our engagement with clients and candidates."
+        },
+        {
+            icon: Heart,
+            title: "Focus on Long-Term Partnerships",
+            copy: "We don't look at recruitment as a one-time transaction. Our objective is to build long-term relationships with clients by consistently delivering dependable workforce solutions."
+        },
+        {
+            icon: Users,
+            title: "Talent & Business Connection",
+            copy: "We create a strong connection between organizations looking for the right talent and professionals looking for the right opportunities, helping both sides achieve their objectives."
+        },
     ];
+
     return (
         <section className="py-20">
             <div className="container-page">
@@ -238,18 +244,25 @@ function WhyChooseUs() {
                         Why Choose Vivyaan Business Systems?
                     </h2>
                 </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {items.map((i, idx) => {
                         const Icon = i.icon;
                         return (
                             <div
                                 key={idx}
-                                className="flex items-center gap-4 rounded-2xl border border-border bg-card p-6 hover:border-brand/40 hover:shadow-card transition"
+                                className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 hover:border-brand/40 hover:shadow-card transition"
                             >
                                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-brand shrink-0">
                                     <Icon className="h-6 w-6" />
                                 </div>
-                                <p className="text-sm font-semibold text-foreground leading-tight">{i.copy}</p>
+                                <div>
+                                    <h3 className="text-base font-bold text-foreground mb-2 leading-tight">
+                                        {i.title}
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {i.copy}
+                                    </p>
+                                </div>
                             </div>
                         );
                     })}
@@ -299,14 +312,14 @@ function Testimonials() {
             title: "Technology Company",
         },
         {
-            quote: "Their web development and digital marketing services significantly improved our online presence and customer engagement.",
-            name: "Business Owner",
-            title: "Retail Business",
+            quote: "Their tailored manpower solutions significantly improved our daily operations, taking the administrative burden off our shoulders so we could focus on growth.",
+            name: "Facility Manager",
+            title: "Logistics Enterprise",
         },
         {
             quote: "The team understood our staffing requirements perfectly and consistently delivered quality talent within the expected timelines.",
             name: "Operations Director",
-            title: "IT Services Company",
+            title: "Manufacturing Firm",
         },
     ];
 
@@ -433,7 +446,7 @@ function PreFooterCTA() {
                             Ready to Grow Your Business?
                         </h2>
                         <p className="mt-4 text-brand-foreground/80 max-w-2xl mx-auto text-lg">
-                            Whether you need skilled professionals, innovative technology solutions, or strategic business support, Vivyaan Business Systems Pvt. Ltd. is here to help. Partner with us to build stronger teams, optimise operations, and accelerate business growth.
+                            Whether you need permanent employees, temporary staffing, or comprehensive manpower support, Vivyaan Business Systems Pvt. Ltd. is here to help. Partner with us to build stronger teams, optimise operations, and accelerate business growth.
                         </p>
                         <Link
                             to="/contact"
