@@ -6,7 +6,7 @@ export default function LeadForm({ defaultService = "" }) {
     const [submitting, setSubmitting] = useState(false);
 
     const onSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         setSubmitting(true);
         setTimeout(() => {
             setSubmitting(false);
