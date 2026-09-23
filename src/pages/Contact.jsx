@@ -52,20 +52,23 @@ export default function Contact() {
                             Mon – Fri: 9:00 AM – 7:00 PM IST<br />Sat: 10:00 AM – 2:00 PM IST
                         </ContactCard>
 
-                        <div className="w-full min-w-0 h-62.5 sm:h-100 rounded-2xl sm:rounded-3xl overflow-hidden border border-border shadow-card relative mt-6">
+                        <div className="w-full min-w-0 h-62.5 sm:h-100 rounded-2xl sm:rounded-3xl overflow-hidden border border-border shadow-card relative mt-6 bg-muted">
                             <iframe
                                 title="Vivyaan Business Systems Location"
                                 scrolling="no"
                                 frameBorder="0"
                                 marginHeight="0"
                                 marginWidth="0"
-                                src="https://www.openstreetmap.org/export/embed.html?bbox=82.0528%2C26.2446%2C82.0928%2C26.2846&layer=mapnik&marker=26.2646%2C82.0728"
-                                className="w-full h-full block grayscale-20ntrast-125 opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                                // Switched to Google Maps embed for better reliability
+                                src="https://maps.google.com/maps?q=26.2646,82.0728&z=15&output=embed"
+                                // Fixed the Tailwind CSS typo here (grayscale contrast-125)
+                                className="w-full h-full block grayscale contrast-125 opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                             ></iframe>
 
                             <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10">
                                 <a
-                                    href="https://www.openstreetmap.org/?mlat=26.2646&mlon=82.0728#map=15/26.2646/82.0728"
+                                    // Updated the external link to point to Google Maps
+                                    href="https://www.google.com/maps/search/?api=1&query=26.2646,82.0728"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="rounded-full bg-background/90 backdrop-blur border border-border px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold text-brand shadow-sm hover:bg-brand hover:text-brand-foreground transition"

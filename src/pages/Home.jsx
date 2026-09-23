@@ -4,7 +4,6 @@ import {
     Briefcase,
     Globe,
     TrendingUp,
-    HeadphonesIcon,
     UserCheck,
     HardHat,
     Star,
@@ -14,11 +13,15 @@ import {
     CheckCircle,
     Heart,
     ArrowRight,
-    Sparkles
+    Sparkles,
+    Code,
+    ChevronRight,
+    ChevronDown // Added for the accordion toggle
 } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import heroImg from "../assets/hero.jpg";
 import SEO from "./SEO";
+import { CATEGORIES, getServicesByCategory } from "../lib/services-data";
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(false);
@@ -107,62 +110,85 @@ function CompanyIntro() {
 }
 
 function CoreServices() {
-    const services = [
-        {
-            title: "Staffing and Recruitment",
-            slug: "staffing-and-recruitment",
-            icon: Users,
-            copy: "Comprehensive recruitment solutions to help you identify, attract, and deploy the perfect candidates for permanent, contract, and temporary roles.",
-        },
-        {
-            title: "Domestic Staffing",
-            slug: "domestic-staffing",
-            icon: Briefcase,
-            copy: "Skilled professionals and workforce solutions across India for IT, Non-IT, manufacturing, healthcare, and retail.",
-        },
-        {
-            title: "Blue Collar Workforce",
-            slug: "blue-collar-workforce",
-            icon: HardHat,
-            copy: "Supplying reliable skilled manpower including factory workers, machine operators, drivers, security guards, and technicians.",
-        },
-        {
-            title: "Manpower Services",
-            slug: "manpower-services",
-            icon: UserCheck,
-            copy: "Reliable manpower outsourcing and management solutions designed to streamline your daily operations and meet dynamic business demands.",
-        }
+    // State to track which accordion is currently open
+    const [expandedId, setExpandedId] = useState(null);
+
+    const categoryConfig = [
+        { id: "recruitment", icon: Users },
+        { id: "staffing", icon: Briefcase },
+        { id: "manpower", icon: HardHat },
+        { id: "software", icon: Code }
     ];
 
     return (
-        <section className="py-20 bg-surface">
+        <section className="py-20 bg-surface border-y border-border">
             <div className="container-page">
                 <div className="text-center mb-12">
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
-                        Our Core Services
+                        Our Core Expertise
                     </p>
                     <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
                         End-to-End Business Solutions
                     </h2>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {services.map((service) => {
-                        const Icon = service.icon;
+
+                {/* Added 'items-start' so only the opened card expands, not its neighbors */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+                    {categoryConfig.map((config) => {
+                        const Icon = config.icon;
+                        const categoryMeta = CATEGORIES[config.id];
+                        const subServices = getServicesByCategory(config.id);
+
+                        // Check if this specific card's accordion is open
+                        const isOpen = expandedId === config.id;
+
                         return (
-                            <Link
-                                key={service.slug}
-                                to={`/services/${service.slug}`}
-                                className="group rounded-3xl border border-border bg-card p-8 flex flex-col hover:shadow-elegant hover:-translate-y-1 hover:border-brand/40 transition-all cursor-pointer"
+                            <div
+                                key={config.id}
+                                className="group rounded-3xl border border-border bg-card p-6 md:p-8 flex flex-col hover:shadow-elegant hover:border-brand transition-all duration-300"
                             >
                                 <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-brand text-brand-foreground shadow-elegant mb-6">
                                     <Icon className="h-6 w-6" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-brand transition-colors">{service.title}</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed grow">{service.copy}</p>
-                                <div className="mt-6 text-sm font-semibold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
-                                    Learn more <span className="text-lg leading-none">&rarr;</span>
+                                <h3 className="text-xl font-bold mb-2 text-foreground">{categoryMeta.label}</h3>
+
+                                {/* Added min-h-[48px] and line-clamp-2 to ensure all closed boxes are the exact same height initially */}
+                                <p className="text-sm text-muted-foreground mb-6 min-h-10 line-clamp-2">
+                                    {categoryMeta.description}
+                                </p>
+
+                                <div className="mt-auto pt-4 border-t border-border/50">
+                                    {/* Toggle Button */}
+                                    <button
+                                        onClick={() => setExpandedId(isOpen ? null : config.id)}
+                                        className="flex w-full items-center justify-between text-sm font-semibold text-brand hover:brightness-75 transition-all"
+                                    >
+                                        <span>{isOpen ? "Hide Services" : "Explore Services"}</span>
+                                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                                    </button>
+
+                                    {/* Animated Collapsible List */}
+                                    <div
+                                        className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"
+                                            }`}
+                                    >
+                                        <div className="overflow-hidden">
+                                            <div className="space-y-3 pb-1">
+                                                {subServices.map((sub) => (
+                                                    <Link
+                                                        key={sub.slug}
+                                                        to={`/services/${sub.slug}`}
+                                                        className="flex items-center justify-between text-sm font-medium text-foreground/80 hover:text-brand transition group/link"
+                                                    >
+                                                        {sub.title}
+                                                        <ChevronRight className="h-3.5 w-3.5 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all shrink-0 ml-2" />
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </Link>
+                            </div>
                         );
                     })}
                 </div>
