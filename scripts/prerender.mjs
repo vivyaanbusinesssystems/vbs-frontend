@@ -23,7 +23,7 @@ const STATIC_ROUTES = [
     "/contact",
     "/online-ordering-software",
     "/pricing",
-    "/terms-of-service",
+    "/terms-and-conditions",
     "/privacy-policy",
     "/refund-cancellation-policy",
     "/shipping-delivery-policy",

@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "sonner";
@@ -91,7 +91,8 @@ export function AppRoutes() {
 
         {/* Legal Routes (Paths matched to the Footer links) */}
         <Route path="/privacy-policy" element={<Privacy />} />
-        <Route path="/terms-of-service" element={<Terms />} />
+        <Route path="/terms-and-conditions" element={<Terms />} />
+        <Route path="/terms-of-service" element={<Navigate to="/terms-and-conditions" replace />} />
         <Route path="/legal/:doc" element={<PlatformLegal />} />
         <Route path="/refund-cancellation-policy" element={<RefundCancellation />} />
         <Route path="/shipping-delivery-policy" element={<ShippingDelivery />} />

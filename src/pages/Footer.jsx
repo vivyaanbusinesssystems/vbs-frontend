@@ -12,7 +12,7 @@ const Linkedin = (props) => (
 );
 
 const LEGAL_LINKS = [
-    { to: "/terms-of-service", label: "Terms & Conditions" },
+    { to: "/terms-and-conditions", label: "Terms & Conditions" },
     { to: "/privacy-policy", label: "Privacy Policy" },
     { to: "/refund-cancellation-policy", label: "Refund & Cancellation Policy" },
     { to: "/shipping-delivery-policy", label: "Shipping & Delivery Policy" },

@@ -78,7 +78,7 @@ export default function Terms() {
         <LegalPage
             seoTitle="Terms & Conditions"
             seoDescription="Terms & Conditions for the recruitment, staffing, manpower and software services, including the online ordering platform, of Vivyaan Business Systems Pvt. Ltd."
-            seoUrl="https://www.vivyaanbusinesssystems.com/terms-of-service"
+            seoUrl="https://www.vivyaanbusinesssystems.com/terms-and-conditions"
             title="Terms & Conditions"
             intro="Please read these terms carefully before using our website and services. They explain your rights, your responsibilities, and how our services work."
             updated="17 November 2026"

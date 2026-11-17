@@ -219,7 +219,7 @@ export default function OnlineOrdering() {
                                 ))}
                             </ul>
                             <p className="mt-6 text-sm text-muted-foreground">
-                                Read our <Link to="/terms-of-service" className="text-brand font-semibold hover:underline">Terms &amp; Conditions</Link> and <Link to="/refund-cancellation-policy" className="text-brand font-semibold hover:underline">Refund &amp; Cancellation Policy</Link> for the full details.
+                                Read our <Link to="/terms-and-conditions" className="text-brand font-semibold hover:underline">Terms &amp; Conditions</Link> and <Link to="/refund-cancellation-policy" className="text-brand font-semibold hover:underline">Refund &amp; Cancellation Policy</Link> for the full details.
                             </p>
                         </div>
                     </Reveal>

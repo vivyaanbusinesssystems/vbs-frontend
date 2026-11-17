@@ -5,9 +5,9 @@ import SEO from "./SEO";
 
 // Same paths as the platform's own pages (/legal/terms, /legal/owner-terms ...), read live from the platform backend.
 const DOCS = {
-    "owner-terms": { key: "owner_terms", label: "Terms of Service for Shop Owners" },
+    "owner-terms": { key: "owner_terms", label: "Terms & Conditions for Shop Owners" },
     "owner-privacy": { key: "owner_privacy", label: "Privacy Policy for Shop Owners" },
-    terms: { key: "customer_terms", label: "Terms of Service for Customers" },
+    terms: { key: "customer_terms", label: "Terms & Conditions for Customers" },
     privacy: { key: "privacy", label: "Privacy Policy for Customers" },
 };
 
@@ -71,7 +71,7 @@ export default function PlatformLegal() {
             <div className="container-page py-24 text-center">
                 <SEO title="Document not found" />
                 <h1 className="text-3xl font-bold">Document not found</h1>
-                <Link to="/terms-of-service" className="mt-6 inline-flex font-semibold text-brand">Go to Terms &amp; Conditions</Link>
+                <Link to="/terms-and-conditions" className="mt-6 inline-flex font-semibold text-brand">Go to Terms &amp; Conditions</Link>
             </div>
         );
     }
@@ -155,7 +155,7 @@ export default function PlatformLegal() {
 
                     <p className="mt-8 text-center text-sm text-muted-foreground">
                         For the company's own terms and policies, see{" "}
-                        <Link to="/terms-of-service" className="text-brand font-semibold hover:underline">Terms &amp; Conditions</Link>,{" "}
+                        <Link to="/terms-and-conditions" className="text-brand font-semibold hover:underline">Terms &amp; Conditions</Link>,{" "}
                         <Link to="/privacy-policy" className="text-brand font-semibold hover:underline">Privacy Policy</Link> and{" "}
                         <Link to="/refund-cancellation-policy" className="text-brand font-semibold hover:underline">Refund &amp; Cancellation Policy</Link>.
                     </p>
