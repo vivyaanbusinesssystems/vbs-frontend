@@ -66,9 +66,9 @@ export default function Terms() {
             title: "11. Platform Documents for Shop Owners and Customers",
             content: "The online ordering platform has its own full terms and privacy policies for shop owners and for customers. They are shown here exactly as they appear in the platform, so they are always up to date.",
             links: [
-                { to: "/legal/owner-terms", label: "Terms for Shop Owners" },
+                { to: "/legal/owner-terms-and-conditions", label: "Terms & Conditions for Shop Owners" },
                 { to: "/legal/owner-privacy", label: "Privacy for Shop Owners" },
-                { to: "/legal/terms", label: "Terms for Customers" },
+                { to: "/legal/terms-and-conditions", label: "Terms & Conditions for Customers" },
                 { to: "/legal/privacy", label: "Privacy for Customers" },
             ],
         }

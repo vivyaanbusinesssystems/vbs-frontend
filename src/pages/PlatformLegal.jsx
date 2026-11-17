@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { FileText, RefreshCw } from "lucide-react";
 import SEO from "./SEO";
 
-// Same paths as the platform's own pages (/legal/terms, /legal/owner-terms ...), read live from the platform backend.
+// Same paths as the platform's own pages (/legal/terms-and-conditions, /legal/owner-terms-and-conditions ...), read live from the platform backend.
 const DOCS = {
-    "owner-terms": { key: "owner_terms", label: "Terms & Conditions for Shop Owners" },
+    "owner-terms-and-conditions": { key: "owner_terms", label: "Terms & Conditions for Shop Owners" },
     "owner-privacy": { key: "owner_privacy", label: "Privacy Policy for Shop Owners" },
-    terms: { key: "customer_terms", label: "Terms & Conditions for Customers" },
+    "terms-and-conditions": { key: "customer_terms", label: "Terms & Conditions for Customers" },
     privacy: { key: "privacy", label: "Privacy Policy for Customers" },
 };
 

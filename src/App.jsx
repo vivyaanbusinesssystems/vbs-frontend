@@ -93,6 +93,8 @@ export function AppRoutes() {
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/terms-of-service" element={<Navigate to="/terms-and-conditions" replace />} />
+        <Route path="/legal/terms" element={<Navigate to="/legal/terms-and-conditions" replace />} />
+        <Route path="/legal/owner-terms" element={<Navigate to="/legal/owner-terms-and-conditions" replace />} />
         <Route path="/legal/:doc" element={<PlatformLegal />} />
         <Route path="/refund-cancellation-policy" element={<RefundCancellation />} />
         <Route path="/shipping-delivery-policy" element={<ShippingDelivery />} />
