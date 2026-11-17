@@ -22,4 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
- .env
+
+# Environment files hold per-machine settings: never commit them. Production values go in the host's
+# environment-variable settings. (.env.example is the template and stays in git.)
+.env
+.env.*
+!.env.example
