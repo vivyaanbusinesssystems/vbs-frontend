@@ -12,6 +12,7 @@ import {
 import { CATEGORIES, getServicesByCategory } from "../lib/services-data";
 import { cn } from "../lib/utils";
 import logo from "../assets/logo.svg";
+import ThemeToggle from "../components/ThemeToggle";
 
 const NAV = [
     { to: "/", label: "Home", icon: Home },
@@ -58,7 +59,7 @@ export default function Navbar() {
                         <img
                             src={logo}
                             alt="Vivyaan Business Systems Logo"
-                            className="h-24 md:h-38 w-auto object-contain"
+                            className="logo-img h-24 md:h-38 w-auto object-contain"
                         />
                     </Link>
 
@@ -101,6 +102,7 @@ export default function Navbar() {
                     </nav>
 
                     <div className="flex items-center gap-2">
+                        <ThemeToggle />
                         <Link
                             to="/contact"
                             className="btn-shine hidden md:inline-flex items-center rounded-full gradient-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground shadow-elegant hover:-translate-y-0.5 hover:shadow-2xl transition-all"

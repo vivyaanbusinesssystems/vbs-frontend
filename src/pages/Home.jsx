@@ -358,7 +358,7 @@ function PlatformSpotlight() {
                         <div className="absolute inset-0 bg-dots opacity-10" />
                         <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
                             <div>
-                                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                                <span className="inline-flex items-center gap-2 rounded-full bg-brand-foreground/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
                                     <Store className="h-3.5 w-3.5" /> SaaS Platform
                                 </span>
                                 <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
@@ -376,7 +376,7 @@ function PlatformSpotlight() {
                                     </Link>
                                     <Link
                                         to="/pricing"
-                                        className="inline-flex items-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold hover:bg-white/10 transition"
+                                        className="inline-flex items-center rounded-full border border-brand-foreground/30 px-7 py-3.5 text-sm font-semibold hover:bg-brand-foreground/10 transition"
                                     >
                                         View Pricing
                                     </Link>
@@ -386,8 +386,8 @@ function PlatformSpotlight() {
                                 {points.map((p) => {
                                     const Icon = p.icon;
                                     return (
-                                        <li key={p.label} className="flex items-center gap-3 rounded-2xl bg-white/10 backdrop-blur px-4 py-4 hover:bg-white/20 transition-colors">
-                                            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/15">
+                                        <li key={p.label} className="flex items-center gap-3 rounded-2xl bg-brand-foreground/10 backdrop-blur px-4 py-4 hover:bg-brand-foreground/20 transition-colors">
+                                            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-foreground/15">
                                                 <Icon className="h-5 w-5 text-highlight" />
                                             </span>
                                             <span className="text-sm font-semibold leading-snug">{p.label}</span>
@@ -619,7 +619,7 @@ function PreFooterCTA() {
                 <Reveal direction="zoom">
                     <div className="relative overflow-hidden rounded-3xl gradient-brand px-6 py-14 sm:px-14 sm:py-20 text-center">
                         <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-highlight/30 blur-3xl animate-blob" />
-                        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-white/10 blur-3xl animate-blob [animation-delay:-9s]" />
+                        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-brand-foreground/10 blur-3xl animate-blob [animation-delay:-9s]" />
                         <div className="absolute inset-0 bg-dots opacity-10" />
                         <div className="relative">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-foreground max-w-3xl mx-auto">
@@ -638,7 +638,7 @@ function PreFooterCTA() {
                                 </Link>
                                 <a
                                     href="tel:+919151566767"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-4 text-base font-semibold text-brand-foreground hover:bg-white/10 transition"
+                                    className="inline-flex items-center gap-2 rounded-full border border-brand-foreground/30 px-8 py-4 text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 transition"
                                 >
                                     <Phone className="h-5 w-5" /> +91 91515 66767
                                 </a>

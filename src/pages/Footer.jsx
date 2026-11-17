@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Mail, Phone, MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { SERVICES, CATEGORIES } from "../lib/services-data";
 
 // Custom SVG icon (Lucide removed its brand icons)
@@ -27,14 +27,14 @@ export default function Footer() {
         // pb-24 on mobile keeps the content clear of the fixed bottom tab bar
         <footer className="relative mt-24 bg-primary text-primary-foreground overflow-hidden pb-24 lg:pb-0">
             <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-transparent via-highlight to-transparent" />
-            <div className="pointer-events-none absolute -top-40 -right-40 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+            <div className="pointer-events-none absolute -top-40 -right-40 h-96 w-96 rounded-full bg-brand-foreground/5 blur-3xl" />
 
             <div className="container-page relative py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
                 {/* Brand */}
                 <div className="lg:col-span-4">
                     <div className="flex items-center gap-3">
-                        <span className="grid h-11 w-11 place-items-center rounded-xl bg-highlight text-highlight-foreground">
-                            <Sparkles className="h-5 w-5" />
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white p-1">
+                            <img src="/favicon.svg" alt="" width="36" height="36" className="h-full w-full" />
                         </span>
                         <div className="leading-tight">
                             <p className="text-lg font-bold">Vivyaan</p>
@@ -52,7 +52,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Vivyaan Business Systems on LinkedIn"
-                        className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold hover:bg-highlight hover:text-highlight-foreground transition group"
+                        className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-foreground/10 px-4 py-2 text-sm font-semibold hover:bg-highlight hover:text-highlight-foreground transition group"
                     >
                         <Linkedin className="h-4 w-4" /> Follow on LinkedIn
                         <ArrowUpRight className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100 transition" />
@@ -122,7 +122,7 @@ export default function Footer() {
             </div>
 
             {/* Legal strip: all required policy links, on every page */}
-            <div className="relative border-t border-white/10">
+            <div className="relative border-t border-brand-foreground/10">
                 <div className="container-page py-6 flex flex-col gap-5 text-xs text-primary-foreground/60">
                     <nav aria-label="Legal" className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2">
                         {LEGAL_LINKS.map((l) => (

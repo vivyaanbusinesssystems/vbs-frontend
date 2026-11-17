@@ -125,7 +125,7 @@ export default function Services() {
                                         <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-highlight/30 blur-3xl animate-blob" />
                                         <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                                             <div className="max-w-2xl">
-                                                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                                                <span className="inline-flex items-center gap-2 rounded-full bg-brand-foreground/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
                                                     <Store className="h-3.5 w-3.5" /> Our Software Product
                                                 </span>
                                                 <h3 className="mt-4 text-2xl sm:text-3xl font-extrabold">Online Ordering Software for Restaurants</h3>
@@ -137,7 +137,7 @@ export default function Services() {
                                                 <Link to="/online-ordering-software" className="btn-shine inline-flex items-center gap-2 rounded-full bg-highlight text-highlight-foreground px-6 py-3 text-sm font-bold hover:scale-[1.03] transition group">
                                                     Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                                 </Link>
-                                                <Link to="/pricing" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition">
+                                                <Link to="/pricing" className="inline-flex items-center rounded-full border border-brand-foreground/30 px-6 py-3 text-sm font-semibold hover:bg-brand-foreground/10 transition">
                                                     View Pricing
                                                 </Link>
                                             </div>
