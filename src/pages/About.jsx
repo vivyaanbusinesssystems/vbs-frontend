@@ -10,7 +10,7 @@ export default function About() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Instantly lands the user at the top of the page
+        // Instantly lands the user at the top of the page 
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
         // Triggers the smooth fade-in effect
