@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
     HeartPulse, ShoppingBag, Factory, Truck, Radio, Zap,
     GraduationCap, HardHat, Landmark, Server, Car, Pill,
-    Cog, ShoppingCart, BedDouble
+    Cog, ShoppingCart, BedDouble, ArrowRight
 } from "lucide-react";
 import SEO from "./SEO";
+import Reveal from "../components/Reveal";
 
-// Updated perfectly to match the client's "Industries We Serve" list
+// Matches the client's "Industries We Serve" list
 const INDUSTRY_DATA = [
     {
         title: "Information Technology (IT)",
@@ -87,78 +88,73 @@ const INDUSTRY_DATA = [
 ];
 
 export default function Industries() {
-    const [isVisible, setIsVisible] = useState(false);
-
     useEffect(() => {
-        // Instantly lands the user at the top of the page when navigating here
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-
-        // Triggers the smooth fade-in effect
-        const timer = setTimeout(() => setIsVisible(true), 50);
-        return () => clearTimeout(timer);
     }, []);
 
     return (
-        // Added pb-20 lg:pb-0 to clear the mobile bottom navbar, matching the Home layout
-        <div className={`transition-opacity duration-700 ease-out pb-20 lg:pb-0 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-
-            {/* SEO Wrapper for the Industries Page */}
+        <div className="animate-page-in pb-20 lg:pb-0">
             <SEO
                 title="Industries We Serve"
                 description="Vivyaan Business Systems provides domain expertise across IT, Healthcare, Manufacturing, Banking, Retail, and more."
                 url="https://www.vivyaanbusinesssystems.com/industries"
             />
 
-            {/* Reduced pt-28 to pt-16 for mobile, while keeping pt-28 (lg:pt-28) for desktop to clear the top sticky navbar comfortably */}
-            <section className="gradient-hero pt-16 lg:pt-28 pb-16 lg:pb-20">
-                <div className="container-page max-w-3xl text-center">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">Industries We Serve</p>
-                    <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
+            <section className="relative gradient-hero overflow-hidden pt-16 lg:pt-28 pb-16 lg:pb-20">
+                <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+                <div className="pointer-events-none absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-highlight/25 blur-3xl animate-blob" />
+                <div className="container-page relative max-w-3xl text-center">
+                    <p className="animate-fade-up text-xs font-bold uppercase tracking-[0.18em] text-brand">Industries We Serve</p>
+                    <h1 className="animate-fade-up [animation-delay:100ms] mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
                         Domain expertise across every sector we serve.
                     </h1>
-                    <p className="mt-5 text-lg text-muted-foreground">
+                    <p className="animate-fade-up [animation-delay:200ms] mt-5 text-lg text-muted-foreground">
                         Our teams bring lived experience of the regulations, workflows, and technology stacks
                         unique to each industry.
                     </p>
                 </div>
             </section>
 
-            <section className="py-16 lg:py-20">
+            <section className="py-16 lg:py-24">
                 <div className="container-page grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {INDUSTRY_DATA.map((ind) => {
+                    {INDUSTRY_DATA.map((ind, i) => {
                         const Icon = ind.icon;
                         return (
-                            <div
-                                key={ind.title}
-                                className="group flex flex-col rounded-2xl border border-border bg-card p-6 hover:border-brand/40 hover:shadow-elegant hover:-translate-y-1 transition-all"
-                            >
-                                <div className="grid h-12 w-12 place-items-center rounded-xl gradient-brand text-brand-foreground mb-5">
-                                    <Icon className="h-6 w-6" />
+                            <Reveal key={ind.title} delay={(i % 3) * 80} className="h-full">
+                                <div className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 hover:border-brand/40 hover:shadow-elegant hover:-translate-y-1.5 transition-all duration-300">
+                                    <div className="grid h-12 w-12 place-items-center rounded-xl gradient-brand text-brand-foreground mb-5 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                        <Icon className="h-6 w-6" />
+                                    </div>
+                                    <h3 className="text-lg font-bold">{ind.title}</h3>
+                                    <p className="mt-2 text-sm text-muted-foreground grow leading-relaxed">
+                                        {ind.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-lg font-bold">{ind.title}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground grow">
-                                    {ind.description}
-                                </p>
-                            </div>
+                            </Reveal>
                         );
                     })}
                 </div>
             </section>
 
-            <section className="py-16">
+            <section className="pb-16">
                 <div className="container-page">
-                    <div className="rounded-3xl gradient-brand text-brand-foreground p-8 sm:p-10 text-center">
-                        <h2 className="text-2xl sm:text-3xl font-bold">Don't see your industry?</h2>
-                        <p className="mt-3 text-brand-foreground/80 max-w-xl mx-auto">
-                            We've likely worked in your space — let's have a conversation.
-                        </p>
-                        <Link
-                            to="/contact"
-                            className="mt-6 inline-flex items-center rounded-full bg-highlight text-highlight-foreground px-8 py-3.5 font-bold hover:scale-[1.02] transition"
-                        >
-                            Talk to us
-                        </Link>
-                    </div>
+                    <Reveal direction="zoom">
+                        <div className="relative overflow-hidden rounded-3xl gradient-brand text-brand-foreground p-8 sm:p-12 text-center">
+                            <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-highlight/30 blur-3xl animate-blob" />
+                            <div className="relative">
+                                <h2 className="text-2xl sm:text-3xl font-bold">Don't see your industry?</h2>
+                                <p className="mt-3 text-brand-foreground/80 max-w-xl mx-auto">
+                                    We've likely worked in your space — let's have a conversation.
+                                </p>
+                                <Link
+                                    to="/contact"
+                                    className="btn-shine mt-6 inline-flex items-center gap-2 rounded-full bg-highlight text-highlight-foreground px-8 py-3.5 font-bold hover:scale-[1.03] transition group"
+                                >
+                                    Talk to us <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        </div>
+                    </Reveal>
                 </div>
             </section>
         </div>

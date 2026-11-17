@@ -32,4 +32,4 @@ const ResizableHandle = ({
     </Separator>
 );
 
-export { ResizablePanelGroup, ResizablePanel, ResizableHandle };s
+export { ResizablePanelGroup, ResizablePanel, ResizableHandle };

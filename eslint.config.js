@@ -18,4 +18,10 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // shadcn-style UI primitives export both components and their style variants
+    // by design, so Fast Refresh's "components only" rule doesn't apply here.
+    files: ['src/components/ui/**/*.{js,jsx}'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  },
 ])

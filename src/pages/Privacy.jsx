@@ -1,101 +1,76 @@
-import { useEffect, useState } from "react";
-import { Shield, Eye, Lock, Mail } from "lucide-react";
+import { Eye, Shield, Lock, Users, Cookie, Clock, UserCheck, Mail } from "lucide-react";
+import LegalPage from "../components/LegalPage";
 
 export default function Privacy() {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-        const timer = setTimeout(() => setIsVisible(true), 50);
-        return () => clearTimeout(timer);
-    }, []);
-
     const sections = [
         {
             icon: Eye,
             title: "1. Information We Collect",
-            content: "We collect information you provide directly to us when you request information, sign up for our services, or communicate with us. This may include your name, email address, phone number, and any other information you choose to provide."
+            content: "We collect information you give us directly, for example when you send an enquiry, ask for information, sign up for our services or contact us. This may include your name, company, email address, phone number and the details of your requirement."
         },
         {
             icon: Shield,
             title: "2. How We Use Your Information",
-            content: "We use the information we collect to provide, maintain, and improve our services, communicate with you (including responding to your comments and questions), understand and analyze how you use our website, and develop new products and features."
+            content: "We use your information to respond to your enquiries, provide and improve our services, communicate with you, and keep our website and platform secure. We do not sell your personal information."
+        },
+        {
+            icon: Users,
+            title: "3. Customer Data on Shop Websites",
+            content: [
+                "Our online ordering platform lets shops take orders from their own customers on the shop's website and mobile app. For the data of those customers, the shop and Vivyaan are joint data fiduciaries under the Digital Personal Data Protection Act, 2023.",
+                "The shop decides why customer data is collected: to take and deliver the customer's order. Vivyaan decides how the platform is run and secured: login codes, security and abuse prevention, and service messages.",
+                "Customers are kept separately for each shop, and are not combined across shops.",
+                "The independent developer of the platform has only limited technical access to the servers, to run and repair the service, and is bound by confidentiality."
+            ]
+        },
+        {
+            icon: Cookie,
+            title: "4. Cookies and Browser Storage",
+            content: "Shop websites keep a customer's login and cart in the browser, using local storage and essential cookies, so the service works. This essential storage does not need a cookie banner. Push notifications and location access are optional, and are used only if the customer allows them."
         },
         {
             icon: Lock,
-            title: "3. Data Security",
-            content: "We implement appropriate technical and organizational measures to maintain the safety of your personal information. However, please note that no method of transmission over the Internet or electronic storage is 100% secure."
+            title: "5. Data Security",
+            content: "We use appropriate technical and organisational measures to protect your personal information. However, no method of transmission over the internet or electronic storage is completely secure."
+        },
+        {
+            icon: Clock,
+            title: "6. How Long We Keep Data",
+            content: "We keep personal information only as long as needed for the purposes above. Records of orders and money, such as invoices, payments and refunds, are kept for as long as the law requires. When a shop is deleted, its customer data is erased, and the money and tax records that remain no longer point to any individual person."
+        },
+        {
+            icon: UserCheck,
+            title: "7. Your Rights and Grievances",
+            content: [
+                "You may ask to access, correct or erase your personal information, and may raise a complaint about how it is handled.",
+                "Grievance Officer: Vivek Dubey, Vivyaan Business Systems Pvt. Ltd., vivek@vivyaanbusinesssystems.com. We acknowledge a complaint within 24 hours and aim to resolve it within 15 days."
+            ]
         },
         {
             icon: Mail,
-            title: "4. Contact Us",
-            content: "If you have any questions about this Privacy Policy, please contact our support team.",
-            link: "mailto:support@vivyaanbusinesssystems.com",
-            linkText: "support@vivyaanbusinesssystems.com"
+            title: "8. Contact Us",
+            content: "For any question about this Privacy Policy, write to support@vivyaanbusinesssystems.com or vivek@vivyaanbusinesssystems.com, or call +91 91515 66767."
+        },
+        {
+            icon: Shield,
+            title: "9. Platform Privacy Policies",
+            content: "The online ordering platform has its own full privacy policies for shop owners and for customers. They are shown here exactly as they appear in the platform, so they are always up to date.",
+            links: [
+                { to: "/legal/owner-privacy", label: "Privacy for Shop Owners" },
+                { to: "/legal/privacy", label: "Privacy for Customers" },
+            ],
         }
     ];
 
     return (
-        <div className={`transition-opacity duration-700 ease-out pb-20 lg:pb-12 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-            {/* Header Section - Adjusted padding for mobile/desktop parity */}
-            <section className="pt-16 lg:pt-28 pb-16 lg:pb-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-surface -z-10" />
-                <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full gradient-brand opacity-10 blur-3xl" />
-
-                <div className="container-page max-w-4xl text-center">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
-                        Legal & Compliance
-                    </p>
-                    <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold text-foreground">
-                        Privacy Policy
-                    </h1>
-                    <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                        Your privacy is critically important to us. This policy outlines how Vivyaan Business Systems Pvt. Ltd. collects, uses, and protects your information.
-                    </p>
-                    <p className="mt-2 text-sm text-muted-foreground/70">
-                        Last updated: {new Date().toLocaleDateString('en-IN')}
-                    </p>
-                </div>
-            </section>
-
-            {/* Content Section */}
-            <section className="py-10">
-                <div className="container-page max-w-4xl">
-                    <div className="flex flex-col gap-6">
-                        {sections.map((section, idx) => {
-                            const Icon = section.icon;
-                            return (
-                                <div
-                                    key={idx}
-                                    className="group rounded-3xl border border-border bg-card p-6 sm:p-10 hover:shadow-elegant hover:border-brand/40 transition-all overflow-hidden"
-                                >
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-brand shrink-0">
-                                            <Icon className="h-6 w-6" />
-                                        </div>
-                                        <h2 className="text-xl sm:text-2xl font-bold text-foreground">
-                                            {section.title}
-                                        </h2>
-                                    </div>
-                                    <p className="text-muted-foreground leading-relaxed text-base sm:text-lg pl-0 sm:pl-16">
-                                        {section.content}
-                                    </p>
-                                    {section.link && (
-                                        <div className="pl-0 sm:pl-16 mt-4 w-full">
-                                            <a
-                                                href={section.link}
-                                                className="inline-flex items-center text-brand font-semibold hover:underline break-all"
-                                            >
-                                                {section.linkText}
-                                            </a>
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-        </div>
+        <LegalPage
+            seoTitle="Privacy Policy"
+            seoDescription="How Vivyaan Business Systems Pvt. Ltd. collects, uses and protects personal information, including customer data on shop websites."
+            seoUrl="https://www.vivyaanbusinesssystems.com/privacy-policy"
+            title="Privacy Policy"
+            intro="Your privacy matters to us. This policy explains how Vivyaan Business Systems Pvt. Ltd. collects, uses and protects your information."
+            updated="17 November 2026"
+            sections={sections}
+        />
     );
 }

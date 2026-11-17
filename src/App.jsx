@@ -2,11 +2,13 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
+import { Toaster } from "sonner";
 
 // Synchronous Imports (Keep layout components loading instantly)
 import Navbar from "../src/pages/Navbar";
 import Footer from "../src/pages/Footer";
 import WhatsAppWidget from "../src/pages/WhatsAppWidget";
+import SEO from "../src/pages/SEO";
 
 // Lazy Loaded Page Imports (Code splitting for performance)
 const Home = lazy(() => import("../src/pages/Home"));
@@ -17,6 +19,11 @@ const Industries = lazy(() => import("../src/pages/Industries"));
 const Contact = lazy(() => import("../src/pages/Contact"));
 const Privacy = lazy(() => import("../src/pages/Privacy"));
 const Terms = lazy(() => import("../src/pages/Terms"));
+const RefundCancellation = lazy(() => import("../src/pages/RefundCancellation"));
+const ShippingDelivery = lazy(() => import("../src/pages/ShippingDelivery"));
+const OnlineOrdering = lazy(() => import("../src/pages/OnlineOrdering"));
+const Pricing = lazy(() => import("../src/pages/Pricing"));
+const PlatformLegal = lazy(() => import("../src/pages/PlatformLegal"));
 
 const queryClient = new QueryClient();
 
@@ -40,6 +47,8 @@ function Layout({ children }) {
       </main>
       <Footer />
       <WhatsAppWidget />
+      {/* The pop-up messages ("Enquiry received", errors) shown by the forms */}
+      <Toaster richColors closeButton position="top-right" />
     </div>
   );
 }
@@ -47,6 +56,8 @@ function Layout({ children }) {
 function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      {/* A missing page must not be listed in search results */}
+      <SEO title="Page not found" noindex url="https://www.vivyaanbusinesssystems.com/" breadcrumbs={[]} />
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
@@ -63,27 +74,40 @@ function NotFound() {
   );
 }
 
+// Everything that lives inside a router. The browser wraps it in BrowserRouter (App below);
+// the build-time prerender wraps it in StaticRouter (entry-server.jsx).
+export function AppRoutes() {
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/online-ordering-software" element={<OnlineOrdering />} />
+        <Route path="/pricing" element={<Pricing />} />
+
+        {/* Legal Routes (Paths matched to the Footer links) */}
+        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/terms-of-service" element={<Terms />} />
+        <Route path="/legal/:doc" element={<PlatformLegal />} />
+        <Route path="/refund-cancellation-policy" element={<RefundCancellation />} />
+        <Route path="/shipping-delivery-policy" element={<ShippingDelivery />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
+  );
+}
+
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <BrowserRouter>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:slug" element={<ServiceDetail />} />
-              <Route path="/industries" element={<Industries />} />
-              <Route path="/contact" element={<Contact />} />
-
-              {/* Legal Routes (Paths matched to the Footer links) */}
-              <Route path="/privacy-policy" element={<Privacy />} />
-              <Route path="/terms-of-service" element={<Terms />} />
-
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
+          <AppRoutes />
         </BrowserRouter>
       </HelmetProvider>
     </QueryClientProvider>

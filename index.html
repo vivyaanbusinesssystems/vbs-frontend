@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <!-- Marks that JavaScript is running, so scroll animations may start hidden. Without it (crawlers, scanners) all content stays visible. -->
+  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
@@ -35,12 +37,11 @@
     rel="stylesheet" />
 
   <!-- Icons -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

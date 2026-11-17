@@ -546,9 +546,14 @@ const SidebarMenuBadge = React.forwardRef(({ className, ...props }, ref) => (
 SidebarMenuBadge.displayName = "SidebarMenuBadge";
 
 const SidebarMenuSkeleton = React.forwardRef(({ className, showIcon = false, ...props }, ref) => {
+    // Deterministic per-instance width (50-89%) derived from a stable id, so
+    // rendering stays pure (Math.random during render is not allowed).
+    const id = React.useId();
     const width = React.useMemo(() => {
-        return `${Math.floor(Math.random() * 40) + 50}%`;
-    }, []);
+        let hash = 0;
+        for (const ch of id) hash = (hash * 31 + ch.charCodeAt(0)) % 40;
+        return `${hash + 50}%`;
+    }, [id]);
 
     return (
         <div

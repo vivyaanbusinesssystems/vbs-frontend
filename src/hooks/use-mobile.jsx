@@ -2,18 +2,19 @@ import * as React from "react";
 
 const MOBILE_BREAKPOINT = 768;
 
+const QUERY = `(max-width: ${MOBILE_BREAKPOINT - 1}px)`;
+
+function subscribe(callback) {
+    const mql = window.matchMedia(QUERY);
+    mql.addEventListener("change", callback);
+    return () => mql.removeEventListener("change", callback);
+}
+
 export function useIsMobile() {
-    const [isMobile, setIsMobile] = React.useState(undefined);
-
-    React.useEffect(() => {
-        const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
-        const onChange = () => {
-            setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-        };
-        mql.addEventListener("change", onChange);
-        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-        return () => mql.removeEventListener("change", onChange);
-    }, []);
-
-    return !!isMobile;
+    // useSyncExternalStore reads the media query without setting state in an effect.
+    return React.useSyncExternalStore(
+        subscribe,
+        () => window.matchMedia(QUERY).matches,
+        () => false
+    );
 }

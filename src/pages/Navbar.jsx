@@ -24,10 +24,15 @@ const NAV = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [megaOpen, setMegaOpen] = useState(false);
+    const [progress, setProgress] = useState(0);
     const location = useLocation();
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 8);
+        const onScroll = () => {
+            setScrolled(window.scrollY > 8);
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            setProgress(max > 0 ? Math.min(window.scrollY / max, 1) : 0);
+        };
         onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
@@ -43,6 +48,11 @@ export default function Navbar() {
                         : "bg-background/60 backdrop-blur-md",
                 )}
             >
+                <div
+                    aria-hidden="true"
+                    className="absolute bottom-0 left-0 h-0.5 w-full origin-left gradient-brand transition-transform duration-150"
+                    style={{ transform: `scaleX(${progress})` }}
+                />
                 <div className="container-page flex h-18 items-center justify-between gap-6 py-3">
                     <Link to="/" className="flex items-center shrink-0">
                         <img
@@ -66,8 +76,8 @@ export default function Navbar() {
                                     <Link
                                         to={item.to}
                                         className={cn(
-                                            "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition",
-                                            isActive ? "text-brand" : "text-foreground/80 hover:text-brand"
+                                            "nav-link flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition",
+                                            isActive ? "text-brand is-active" : "text-foreground/80 hover:text-brand"
                                         )}
                                     >
                                         {item.label}
@@ -80,8 +90,8 @@ export default function Navbar() {
                                     key={item.to}
                                     to={item.to}
                                     className={cn(
-                                        "rounded-md px-3 py-2 text-sm font-medium transition",
-                                        isActive ? "text-brand" : "text-foreground/80 hover:text-brand"
+                                        "nav-link rounded-md px-3 py-2 text-sm font-semibold transition",
+                                        isActive ? "text-brand is-active" : "text-foreground/80 hover:text-brand"
                                     )}
                                 >
                                     {item.label}
@@ -93,7 +103,7 @@ export default function Navbar() {
                     <div className="flex items-center gap-2">
                         <Link
                             to="/contact"
-                            className="hidden md:inline-flex items-center rounded-full gradient-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground shadow-elegant hover:opacity-95 transition"
+                            className="btn-shine hidden md:inline-flex items-center rounded-full gradient-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground shadow-elegant hover:-translate-y-0.5 hover:shadow-2xl transition-all"
                         >
                             Get a Free Consultation
                         </Link>

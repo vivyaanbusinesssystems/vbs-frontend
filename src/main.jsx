@@ -1,10 +1,19 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './App.css' // <-- This imports all your Tailwind v4 styles and utilities
 
-createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+
+// Pages are prerendered at build time (scripts/prerender.mjs). If the page already has content, attach to it
+// (hydrate); otherwise (dev server, or a page that was not prerendered) render from scratch.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app)
+} else {
+  createRoot(container).render(app)
+}

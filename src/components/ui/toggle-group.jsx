@@ -45,4 +45,4 @@ const ToggleGroupItem = React.forwardRef(({ className, children, variant, size, 
 
 ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
 
-export { ToggleGroup, ToggleGroupItem };t
+export { ToggleGroup, ToggleGroupItem };
