@@ -17,7 +17,7 @@
 
 // The setup fee is stated only in this form, on every page.
 export const SETUP_FEE_STATEMENT =
-    "A one-time setup fee will be charged when your shop joins. It is non-refundable.";
+    "A one-time setup fee applies when your shop joins. It is quoted in writing before you commit, billed separately by invoice (not through this website), and is non-refundable.";
 
 // What every plan includes (these do not change by plan).
 export const EVERY_PLAN_INCLUDES = [

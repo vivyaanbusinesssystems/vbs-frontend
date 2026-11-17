@@ -26,7 +26,7 @@ export default function Terms() {
             icon: Wallet,
             title: "4. Plans, Fees and Wallets",
             content: [
-                "Plans, per-order fees and prepaid SMS packs are published on our Pricing page, in Indian Rupees, with GST extra. Monthly plans are paid in advance. A one-time setup fee is charged when a shop joins and is non-refundable.",
+                "Plans and per-order fees are published on our Pricing page, in Indian Rupees, with GST extra. SMS credits can be topped up in any amount the shop chooses. Monthly plans are paid in advance. A one-time setup fee applies when a shop joins. It is quoted in writing before the shop commits, billed separately by invoice (not through this website), and is non-refundable.",
                 "The Partner plan uses a prepaid order-fee wallet and the SMS service uses a separate prepaid SMS wallet. If the order-fee wallet is empty, new orders cannot be taken until it is topped up. If the SMS wallet is empty, customers cannot receive login codes.",
                 "Refunds are governed by our Refund & Cancellation Policy."
             ]
@@ -44,7 +44,7 @@ export default function Terms() {
         {
             icon: Globe,
             title: "7. Websites, Apps and Custom Domains",
-            content: "A shop's own domain name belongs to the shop. Each shop's mobile app is published under the shop's own Google Play account. We plan to offer a custom domain on request for Pro plan shops. The domain would belong to the shop, and we make no promise about timing or SSL certificates."
+            content: "A shop's own domain name belongs to the shop. Each shop's mobile app is published under the shop's own Google Play account. A custom domain is available on request for Pro plan shops. The domain belongs to the shop."
         },
         {
             icon: FileText,
@@ -76,10 +76,10 @@ export default function Terms() {
 
     return (
         <LegalPage
-            seoTitle="Terms of Service"
-            seoDescription="Terms of Service for the recruitment, staffing, manpower and software services, including the online ordering platform, of Vivyaan Business Systems Pvt. Ltd."
+            seoTitle="Terms & Conditions"
+            seoDescription="Terms & Conditions for the recruitment, staffing, manpower and software services, including the online ordering platform, of Vivyaan Business Systems Pvt. Ltd."
             seoUrl="https://www.vivyaanbusinesssystems.com/terms-of-service"
-            title="Terms of Service"
+            title="Terms & Conditions"
             intro="Please read these terms carefully before using our website and services. They explain your rights, your responsibilities, and how our services work."
             updated="17 November 2026"
             sections={sections}

@@ -359,13 +359,13 @@ function PlatformSpotlight() {
                         <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
                             <div>
                                 <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
-                                    <Store className="h-3.5 w-3.5" /> Software Services
+                                    <Store className="h-3.5 w-3.5" /> SaaS Platform
                                 </span>
                                 <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
                                     Online ordering software for restaurants
                                 </h2>
                                 <p className="mt-5 text-lg text-brand-foreground/80 leading-relaxed">
-                                    Give every shop its own ordering website and mobile app, and run orders, riders, money and reports from one place. We provide the software; you keep the profits.
+                                    Give every shop its own ordering website and mobile app, and run orders, riders, money and reports from one place. We provide the software on a monthly plan or prepaid wallet; you keep the profits.
                                 </p>
                                 <div className="mt-8 flex flex-wrap gap-3">
                                     <Link

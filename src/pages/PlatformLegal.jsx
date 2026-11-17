@@ -71,7 +71,7 @@ export default function PlatformLegal() {
             <div className="container-page py-24 text-center">
                 <SEO title="Document not found" />
                 <h1 className="text-3xl font-bold">Document not found</h1>
-                <Link to="/terms-of-service" className="mt-6 inline-flex font-semibold text-brand">Go to Terms of Service</Link>
+                <Link to="/terms-of-service" className="mt-6 inline-flex font-semibold text-brand">Go to Terms &amp; Conditions</Link>
             </div>
         );
     }
@@ -155,7 +155,7 @@ export default function PlatformLegal() {
 
                     <p className="mt-8 text-center text-sm text-muted-foreground">
                         For the company's own terms and policies, see{" "}
-                        <Link to="/terms-of-service" className="text-brand font-semibold hover:underline">Terms of Service</Link>,{" "}
+                        <Link to="/terms-of-service" className="text-brand font-semibold hover:underline">Terms &amp; Conditions</Link>,{" "}
                         <Link to="/privacy-policy" className="text-brand font-semibold hover:underline">Privacy Policy</Link> and{" "}
                         <Link to="/refund-cancellation-policy" className="text-brand font-semibold hover:underline">Refund &amp; Cancellation Policy</Link>.
                     </p>

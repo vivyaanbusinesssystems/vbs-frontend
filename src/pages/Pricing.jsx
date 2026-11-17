@@ -197,8 +197,6 @@ export default function Pricing() {
                                                     <td key={id} className="px-5 py-3.5 text-center">
                                                         {!has ? (
                                                             <Minus className="mx-auto h-4 w-4 text-muted-foreground/40" aria-label="Not included" />
-                                                        ) : f.key === "customDomain" ? (
-                                                            <span className="text-xs font-semibold text-brand">Planned</span>
                                                         ) : (
                                                             <Check className="mx-auto h-5 w-5 text-brand" aria-label="Included" />
                                                         )}
@@ -214,7 +212,7 @@ export default function Pricing() {
 
                     {hasCustomDomain && (
                         <p className="mt-4 text-xs text-muted-foreground">
-                            Custom domain: we plan to offer it on request for Pro shops. The domain belongs to the shop. We make no promise about timing or SSL certificates.
+                            Custom domain: available on request for Pro shops. The domain belongs to the shop.
                         </p>
                     )}
 
@@ -251,7 +249,7 @@ export default function Pricing() {
                             {
                                 icon: MessageSquare,
                                 title: "Prepaid SMS packs",
-                                copy: "SMS is used for customer login codes and service messages. Buy prepaid packs and top up your SMS wallet whenever you need.",
+                                copy: "SMS is used for customer login codes and service messages. Top up your SMS wallet with any amount you choose, whenever you need.",
                             },
                             {
                                 icon: Gift,

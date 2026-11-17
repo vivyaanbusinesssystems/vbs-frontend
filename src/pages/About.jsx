@@ -231,9 +231,9 @@ export default function About() {
                                     <Store className="h-7 w-7" />
                                 </div>
                                 <div>
-                                    <h2 className="text-2xl font-bold">Technology for Restaurants</h2>
+                                    <h2 className="text-2xl font-bold">Our SaaS Platform for Shops</h2>
                                     <p className="mt-2 text-muted-foreground leading-relaxed max-w-xl">
-                                        Alongside our workforce services, we provide online ordering software (SaaS) that gives every shop its own ordering website and mobile app, with the tools to run orders, riders and reports.
+                                        We run a software-as-a-service (SaaS) platform that gives every shop its own ordering website and mobile app, with the tools to run orders, riders and reports, on a monthly plan or a prepaid wallet. We also provide recruitment, staffing and manpower services.
                                     </p>
                                 </div>
                             </div>
