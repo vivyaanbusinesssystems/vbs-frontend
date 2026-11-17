@@ -80,8 +80,8 @@ function Hero() {
                         <Sparkles className="h-3.5 w-3.5" /> Vivyaan Business Systems Pvt. Ltd.
                     </span>
                     <h1 className="animate-fade-up [animation-delay:100ms] mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-                        Powering Businesses with{" "}
-                        <span className="text-gradient-brand">Exceptional Talent</span>
+                        Empowering Businesses with{" "}
+                        <span className="text-gradient-brand">Smart Workforce &amp; Technology Solutions</span>
                     </h1>
                     <p className="animate-fade-up [animation-delay:200ms] mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
                         Vivyaan Business Systems Pvt. Ltd. is a growing workforce solutions and recruitment company focused on helping businesses find the right talent for their evolving workforce needs.
